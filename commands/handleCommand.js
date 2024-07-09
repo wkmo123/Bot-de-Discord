@@ -1,11 +1,11 @@
-// commandsHandler.js
+// handleCommand.js
 
 const playCommand = require('./playCommand');
 const skipCommand = require('./skipCommand');
 const pauseCommand = require('./pauseCommand');
 const resumeCommand = require('./resumeCommand');
 const queueCommand = require('./queueCommand');
-const sendValorantChamps = require('./valorantChampCommand'); // Ruta al nuevo archivo
+const valorantChampCommand = require('./valorantChampCommand');
 
 module.exports = (command, message, args, queue) => {
     const serverQueue = queue.get(message.guild.id);
@@ -27,7 +27,7 @@ module.exports = (command, message, args, queue) => {
             queueCommand(message, serverQueue);
             break;
         case '!valorantchamp':
-            sendValorantChamps(message); // Llama a la función del nuevo archivo
+            valorantChampCommand(message);
             break;
         default:
             message.reply('Comando no reconocido.');
